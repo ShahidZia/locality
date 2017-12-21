@@ -1,0 +1,7 @@
+body{
+  background: url('http://www.rva.uk.com/wp-content/uploads/Networking-1.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
