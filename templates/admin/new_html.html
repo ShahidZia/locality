@@ -1,0 +1,19 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_static admin_list %}
+
+{% block title %}Campaign Data Upload{% endblock title %}
+
+{% block content %}
+<h3 style="color: green"><pre>{{ message }}</pre></h3>
+<fieldset class="module aligned ">
+  <form action="{% url 'import_data' %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="file" name="fileToUpload" id="fileToUpload">
+      <input type="submit" value="Upload" name="submit">
+  </form>
+</fieldset>
+
+{% endblock content %}
+
+
+

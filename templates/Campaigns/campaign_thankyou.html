@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container" xmlns="http://www.w3.org/1999/html">
+        <h1 style="color: #3ea1f9;">Add Campaigns - Step 3 - {{ object.name }}</h1>
+        <hr>
+        <p><strong>Congratulations!! Your Campaign has been created.</strong></p>
+        <br>
+        <p>{{ prof_obj.name|title }}, we have finished creating you campaign. You can now add pages and being monitoring performance.</p>
+        <div class="row pull-right">
+            <a href="{% url 'campaigns' %}"><button class="btn btn-info btn-block"> Campaigns Dashboard </button></a>
+        </div>
+    </div>
+{% endblock %}

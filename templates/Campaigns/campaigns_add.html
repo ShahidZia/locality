@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container" xmlns="http://www.w3.org/1999/html">
+        <h1 style="color: #3ea1f9;">Add Campaigns - Step 1</h1>
+        <hr>
+        <form class="form-horizontal" method="post">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-5 col-sm-8" >
+
+                    <div class="form-group">
+                        <h5><strong>Enter a name for you Campaign</strong></h5>
+                        <input class="form-control" id="{{ form.name.id_for_label }}" maxlength="30" name="{{ form.name.html_name }}" type="text" placeholder="Campaign name" {% if form.name.value %} value="{{ form.name.value }}{% endif %}"/>
+                        {% for error in form.name.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-group">
+                        <h5><strong>Notes</strong></h5>
+                        {{ form.notes }}
+                        {% for error in form.notes.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-group">
+                        <h5><strong>How will you add this page to Campaign?</strong></h5>
+
+                        <div class="radio">
+{#                            <label><input type="radio" class="choices" name="choice" id="">Use an existing landing page or domain.</label><br>#}
+{#                            <label><input type="radio" class="choices" name="choice">Use the locality wordpress integration.</label><br>#}
+{#                            <label><input type="radio" class="choices" name="choice">Upload your page/files.</label><br>#}
+{#                            <label><input type="radio" class="choices" name="choice">Add pages later.</label>#}
+                            {{ form.choices }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="row pull-right">
+            <div class="form-group">
+                    <input class="btn btn-info btn-block" type="submit" value="Next">
+                </div>
+        </div>
+        </form>
+    </div>
+{% endblock %}

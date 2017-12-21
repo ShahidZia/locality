@@ -1,0 +1,52 @@
+{% load static %}
+<html>
+<head>
+    <title>Locality</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    {% if not user.is_authenticated %}
+        <link href="{% static 'Customer/app.css' %}" rel="stylesheet">
+    {% endif %}
+    {% block styles %}
+    {% endblock %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+{% if user.is_authenticated %}
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" style="color: #7830e4; font-size: 30px;" href="{% url 'dashboard' %}"><strong>L<span class="fa fa-map-marker" style="position: relative;
+    top: 7px;"></span>cality</strong></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{% url 'campaigns' %}"><span class="fa fa-group"></span> Campaigns</a></li>
+                    <li><a href="{% url 'preferences' %}"><span class="glyphicon glyphicon-cog"></span> Preferences</a></li>
+                    <li><a href="{% url 'sign_out' %}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+{% endif %}
+{% block style %}
+{% endblock %}
+{% block content %}
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
+
+</body>
+</html>

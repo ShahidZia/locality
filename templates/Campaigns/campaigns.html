@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block style %}
+    <style>
+        .small-blocks .well{
+            min-height: 210px!important;
+        }
+        .data-col .well{
+            padding: 0;
+        }
+        .fa-plus{
+            color :#c3c3c3;
+        }
+        .campagin-name{
+            color: #f5f5f5;
+        }
+        .edit-campaign{
+            color: #ffb500;
+        }
+    </style>
+
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <h1 style="color: #3ea1f9;">Campaigns</h1>
+        <hr>
+
+        <div class="row small-blocks">
+            <div class="col-md-12">
+
+                {% for object in compaign_objects %}
+                    <div class="data-col col-md-3">
+                        <div class="well">
+                            <div class="col-md-12 text-center">
+                                <div style="background-color: #3ea1f9;" class="row">
+                                    <h4 class="campagin-name">{{ object.name }}</h4>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="col-md-6">
+                                            <p>Notes:</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{ object.notes }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="col-md-6">
+                                            <p>Notes:</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{ object.notes }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="col-md-6">
+                                            <p>Notes:</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{ object.notes }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="col-md-6">
+                                            <p>Notes:</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{ object.notes }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <a href="{% url 'campaigns_edit' id=object.id %}"><h4 class="edit-campaign">Edit Campaigns</h4></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <div class="col-md-3">
+                    <div class="well">
+                        <div class="col-md-12 text-center">
+                            <br><br><br>
+
+                            <a href="{% url 'campaigns_add' %}"><i  class="fa fa-plus fa-5x"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container" xmlns="http://www.w3.org/1999/html">
+        <h1 style="color: #3ea1f9;">Add Campaigns - Step 2 - Landing page</h1>
+        <hr>
+        <form class="form-horizontal" method="post">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-5 col-sm-8" >
+
+                    <div class="form-group">
+                        <h5><strong>Enter a name for your Landing page</strong></h5>
+                        <input class="form-control" id="{{ form.name.id_for_label }}" maxlength="30" name="{{ form.name.html_name }}" type="text" placeholder="Campaign name" {% if form.name.value %} value="{{ form.name.value }}{% endif %}"/>
+                        {% for error in form.name.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-group">
+                        <h5><strong>Enter a Url for you origin Landing page.</strong></h5>
+                        {{ form.origin }}
+                        {% for error in form.origin.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-group">
+                        <h5><strong>Select Domain for Locality:</strong></h5>
+                        {{ form.domain_id }}
+                        {% for error in form.domain_id.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-group">
+                        <h5><strong>Optimize Page for:</strong></h5>
+                        {{ form.optimize }}
+                        {% for error in form.optimize.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        <div class="row pull-right">
+            <div class="form-group">
+                    <input class="btn btn-info btn-block" type="submit" value="Next">
+                </div>
+        </div>
+        </form>
+    </div>
+{% endblock %}

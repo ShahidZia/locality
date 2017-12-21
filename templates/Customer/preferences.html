@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1 style="color: #3ea1f9;">Preferences</h1>
+        <hr>
+        <form class="form-horizontal" method="post">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-5 col-sm-8" >
+
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input class="form-control" id="{{ form.name.id_for_label }}" maxlength="30" name="{{ form.name.html_name }}" type="text" placeholder="Your Name" value="{{ form.name.value }}"/>
+                        {% for error in form.name.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-group">
+                        <label>First Address</label>
+                        <input class="form-control" id="{{ form.address1.id_for_label }}" maxlength="200" name="{{ form.address1.html_name }}" type="text" placeholder="Your First Address " value="{{ form.address1.value }}"/>
+                        {% for error in form.address1.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-group">
+                        <label>Second Address</label>
+                        <input class="form-control" id="{{ form.address2.id_for_label }}" maxlength="30" name="{{ form.address2.html_name }}" type="text" placeholder="Your Second Address "  value="{{ form.address2.value }}"/>
+                        {% for error in form.address2.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label>City</label>
+                                <input class="form-control" id="{{ form.city.id_for_label }}" maxlength="200" name="{{ form.city.html_name }}" type="text" placeholder="Your Second Address "  value="{{ form.city.value }}"/>
+                                {% for error in form.city.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-5  col-md-offset-2">
+                            <div class="form-group">
+                                <label>Country</label>
+                                {{ form.country }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input class="form-control" id="{{ form.phone.id_for_label }}" maxlength="30" name="{{ form.phone.html_name }}" type="number" placeholder="Your Phone Number "  value="{{ form.phone.value }}"/>
+                        {% for error in form.phone.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+
+                </div>
+                <div class="col-md-5 col-md-push-2 col-sm-8" >
+                    <div class="well well-sm">
+                        <p>
+                            Your subscription include (% #) Pages (<a href="#">and more</a>)
+                        </p>
+                        <p>
+                            You are using 5/10 pages with 5 pages left.
+                        </p>
+                        <p>
+                            You <a>last invoice #223232</a> was $480 billed 7/1/17
+                        </p>
+                        <p>
+                            You currently have no outstanding invoices
+                        </p>
+                    </div>
+                    <div class="form-group">
+                        <label>Billing Details</label>
+                        <p>Preferred Billing Methods</p>
+                        <div class="radio">
+                            <label><input type="radio" name="billing">Credit Card</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <p>Update Credit Card</p>
+                         <div class="row">
+                            <div class="col-md-8">
+                                <input class="form-control" disabled maxlength="30" type="number" placeholder="****************78767"/>
+                            </div>
+                            <div class="col-md-3">
+                                <input class="form-control disabled" disabled  maxlength="30" type="number" placeholder="7/17"/>
+                            </div>
+                         </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="btn btn-info btn-block" type="submit" value="Update">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
