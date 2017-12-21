@@ -38,3 +38,4 @@ requests==2.13.0
 six==1.10.0
 SQLAlchemy==1.1.9
 urllib3==1.21
+dj_database_url==0.4.2
