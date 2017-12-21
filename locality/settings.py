@@ -88,20 +88,31 @@ AUTHENTICATION_BACKENDS = (
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'DBLocality',
+#         'USER': 'postgres',
+#         'PASSWORD': 'shahid',
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432',
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'DBLocality',
-        'USER': 'postgres',
-        'PASSWORD': 'shahid',
-        'HOST': '127.0.0.1',
+        'NAME': 'deoghofuiipp00',
+        'USER': 'obhubtafzpfqjl',
+        'PASSWORD': '22ceeaee5b71dda0d7bfe92903204044b008ac23f431ebf1d4f1d040974f1eab',
+        'HOST': 'ec2-107-21-201-57.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
 
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+# import dj_database_url
+# db_from_env = dj_database_url.config(conn_max_age=500)
+# DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
