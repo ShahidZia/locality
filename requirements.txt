@@ -5,7 +5,7 @@ bs4==0.0.1
 chardet==3.0.2
 clamd==1.0.2
 config==0.3.9
-Django==1.11
+Django==1.11.28
 django-countries==4.6.1
 django-ratelimit==1.0.1
 dnspython==1.15.0
